@@ -7,6 +7,7 @@ import { getGenres } from "../services/fakeGenreService";
 import { paginate } from "../utils/paginate";
 import _ from "lodash";
 
+
 class Movies extends Component {
 	state = {
 		movies: [],
@@ -77,7 +78,9 @@ class Movies extends Component {
 		const { totalCount, data: movies } = this.getPagedData();
 
 		return (
+		
 			<div className="row">
+	
 				<div className="col-3">
 					<ListGroup
 						items={this.state.genres}

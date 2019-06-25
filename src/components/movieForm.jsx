@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import queryString from 'query-string';
+
 
 class MovieForm extends Component {
   state = {  }

@@ -48,7 +48,7 @@ import Form from './common/form';
             onChange={this.handleChange}
             name="password"
             id="password"
-            type="text"
+            type="password"
             className="form-control"
           />
           {errors.password && <div className="alert alert-danger">{errors.password}</div>}

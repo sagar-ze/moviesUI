@@ -6,7 +6,7 @@ class NavBar extends Component {
   render() { 
     return (
       <React.Fragment>
-         <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+        <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
         <div className="navbar-nav">
           <NavLink className="nav-item nav-link" to='/movies'>Movies
           </NavLink>
@@ -16,6 +16,7 @@ class NavBar extends Component {
           </NavLink>
           <NavLink className="nav-item nav-link" to='/login'>Login
           </NavLink>
+          <NavLink className="nav-item nav-link" to='/register'>Register</NavLink>
          </div>
       </nav>
 

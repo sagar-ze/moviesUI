@@ -4,7 +4,6 @@ import Form from "./common/form";
 import { getMovie, saveMovie } from "../services/movieService";
 import { getGenres } from "../services/genreService";
 
-
 class MovieForm extends Form {
   state = {
     data: {
@@ -89,7 +88,7 @@ class MovieForm extends Form {
         <div className="form-group" >
             <label htmlFor="title">Title</label>
             <input 
-             
+      
               value={data.title}
               onChange={this.handleChange}
               name="title"
@@ -103,14 +102,15 @@ class MovieForm extends Form {
           <div className="form-group" >
             <label htmlFor="genreId">Genre</label>
             <select 
-              value={data.genreId}
+            
               onChange={this.handleChange}
               name="genreId"
               id="genreId"
               className="form-control"
             >
+              <option value=""/>
               {this.state.genres.map(genre => (
-                <option key={genre._id}>{genre.name}</option>
+                <option key={genre._id} value={genre._id}>{genre.name}</option>
               ))}</select> 
               
           </div>
@@ -143,7 +143,7 @@ class MovieForm extends Form {
                 {errors.numberInStock &&<div className="div alert alert-danger">{errors.numberInStock}</div>}
           </div>
         
-      {this.renderButton("Add")}
+      {this.renderButton("Submit")}
        
          </form>
        </div>

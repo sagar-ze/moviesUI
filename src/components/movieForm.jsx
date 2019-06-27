@@ -20,6 +20,7 @@ class MovieForm extends Form {
     _id: Joi.string(),
     title: Joi.string()
       .required()
+      .regex(/^[A-Za-z][A-Za-z0-9]*(?:_[A-Za-z0-9]+)*$/)
       .label("Title"),
     genreId: Joi.string()
       .required()

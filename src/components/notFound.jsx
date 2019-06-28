@@ -1,12 +1,7 @@
-import React, { Component } from 'react';
+import React from "react";
 
-class NotFound extends Component {
-  state = {  }
-  render() { 
-    return ( 
-      <img src={process.env.PUBLIC_URL + '/notfound.png'} /> 
-     );
-  }
-}
- 
+const NotFound = () => {
+  return <h1>Not Found</h1>;
+};
+
 export default NotFound;

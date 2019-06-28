@@ -20,7 +20,6 @@ class MovieForm extends Form {
     _id: Joi.string(),
     title: Joi.string()
       .required()
-      .regex(/^[A-Za-z][A-Za-z0-9]*(?:_[A-Za-z0-9]+)*$/)
       .label("Title"),
     genreId: Joi.string()
       .required()
@@ -76,81 +75,20 @@ class MovieForm extends Form {
     this.props.history.push("/movies");
   };
 
-  render() { 
-   
-    const { data, errors} = this.state;
-    
+  render() {
     return (
-   
- 
       <div>
-        <h1>Add new Movie</h1>
-        <form onSubmit={this.handleSubmit}>
-        <div className="form-group" >
-            <label htmlFor="title">Title</label>
-            <input 
-      
-              value={data.title}
-              onChange={this.handleChange}
-              name="title"
-              id="title"
-              type="text"
-              autoFocus
-              className="form-control"
-            /> 
-                {errors.title &&<div className="div alert alert-danger">{errors.title}</div>}
-          </div>
-          <div className="form-group" >
-            <label htmlFor="genreId">Genre</label>
-            <select 
-            
-              onChange={this.handleChange}
-              name="genreId"
-              id="genreId"
-              className="form-control"
-            >
-              <option value=""/>
-              {this.state.genres.map(genre => (
-                <option key={genre._id} value={genre._id}>{genre.name}</option>
-              ))}</select> 
-              
-          </div>
-          <div className="form-group" >
-            <label htmlFor="dailyRentalRate">Rate</label>
-            <input 
-             
-              value={data.dailyRentalRate}
-              onChange={this.handleChange}
-              name="dailyRentalRate"
-              id="dailyRentalRate"
-              type="text"
-              
-              className="form-control"
-            /> 
-                {errors.dailyRentalRate &&<div className="div alert alert-danger">{errors.dailyRentalRate}</div>}
-          </div>
-          <div className="form-group" >
-            <label htmlFor="numberInStock">NumberInstock</label>
-            <input 
-             
-              value={data.numberInStock}
-              onChange={this.handleChange}
-              name="numberInStock"
-              id="numberInStock"
-              type="text"
-           
-              className="form-control"
-            /> 
-                {errors.numberInStock &&<div className="div alert alert-danger">{errors.numberInStock}</div>}
-          </div>
-        
-      {this.renderButton("Submit")}
-       
-         </form>
-       </div>
-      
+        <h1>Movie Form</h1>
+        <form onSubmit={this.handleSubmit} >
+          {this.renderInput("title", "Title")}
+          {this.renderSelect("genreId", "Genre", this.state.genres)}
+          {this.renderInput("numberInStock", "Number in Stock", "number")}
+          {this.renderInput("dailyRentalRate", "Rate")}
+          {this.renderButton("Save")}
+        </form>
+      </div>
     );
   }
 }
- 
+
 export default MovieForm;
